@@ -23,19 +23,6 @@ textarea {
     line-height: 1.4;
 }
 
-/* buttons and links extension to use brackets: [ click me ] */
-.btn-bracketed::before {
-    display: inline-block;
-    content: "[";
-    padding-right: 0.5em;
-}
-
-.btn-bracketed::after {
-    display: inline-block;
-    content: "]";
-    padding-left: 0.5em;
-}
-
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
@@ -47,4 +34,21 @@ textarea {
     .carousel-caption {
         display: none;
     }
+}
+
+.Where {
+    background-color: #f5f5f5;
+    border-bottom: 0px;
+    color: rgba(0,0,0,.54);
+    font-size: 18px !important;
+    font-style: italic;
+    line-height: 24px;
+    padding: 21px 10px 18px;
+    text-align: center;
+}
+
+.aa {
+    background-clip: padding-box;
+    margin: 20px 12px;
+    position: relative;
 }
