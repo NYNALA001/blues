@@ -20,5 +20,15 @@ namespace blues.Data
             public DbSet<RouteSection> RouteSections { get; set; }
 
             public DbSet<TimeSheet> TimeSheets { get; set; }
+
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            {
+                  modelBuilder.Entity<BusStop>().ToTable("BusStop");
+                  modelBuilder.Entity<GeoInfo>().ToTable("GeoInfo");
+                  modelBuilder.Entity<Route>().ToTable("Route");
+                  modelBuilder.Entity<RouteBusStopTime>().ToTable("RouteBusStopTime");
+                  modelBuilder.Entity<RouteSection>().ToTable("RouteSection");
+                  modelBuilder.Entity<TimeSheet>().ToTable("TimeSheet");
+            }
     }
 }

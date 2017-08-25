@@ -6,6 +6,10 @@
     <UserSecretsId>aspnet-blues-D2E4C4DB-895D-471C-9E23-E8A86ECB36E7</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\DbIntializer.cs.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
