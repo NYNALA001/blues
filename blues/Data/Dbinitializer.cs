@@ -1,6 +1,7 @@
 ﻿using blues.Models;
 using System;
-using System.Linq;
+using System.Linq;
+
 namespace blues.Data
 {
     public class DbIntializer
@@ -17,7 +18,7 @@ namespace blues.Data
 
             var routeBusStopTimes = new RouteBusStopTime[]
             {
-                new RouteBusStopTime{RouteBusStopTimeID=1, RouteID=1, BusStopId=1, OrderIndex=1, TimeSheetId=1}
+                new RouteBusStopTime{RouteBusStopTimeID=1,BusStopId=1, RouteID=1,TimeSheetId=1,OrderIndex=1}
             };
 
             foreach (RouteBusStopTime s in routeBusStopTimes)
