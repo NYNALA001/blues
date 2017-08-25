@@ -45,6 +45,10 @@ namespace blues
 
             services.AddMvc();
 
+            // Add framework services.
+            services.AddDbContext<BusContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddMvc();
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
