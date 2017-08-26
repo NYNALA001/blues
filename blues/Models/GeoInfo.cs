@@ -11,5 +11,7 @@ namespace blues.Models
         public int latitude { get; set; }
         public int longitude { get; set; }
         public String Address { get; set; }
+    
+        public BusStop BusStopID { get; set; }
     }
 }

@@ -1,11 +1,16 @@
-﻿namespace blues.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace blues.Models
 {
     public class RouteBusStopTime
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RouteBusStopTimeID { get; set; }
-        public int BusStopId { get;  set; }
-        public int RouteID { get; set; }
-        public int TimeSheetId { get; set; }
         public int OrderIndex { get; set; }
+
+        public BusStop BusStopID { get;  set; }
+        public Route RouteID { get; set; }
+        public TimeSheet TimeSheetID { get; set; }
+        
     }
 }

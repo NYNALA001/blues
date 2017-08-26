@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Data\DbIntializer.cs.cs" />
+    <Compile Remove="Models\GeoInfo.cs" />
   </ItemGroup>
 
 

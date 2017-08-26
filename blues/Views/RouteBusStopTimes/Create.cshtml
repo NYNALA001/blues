@@ -12,21 +12,10 @@
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="BusStopId" class="col-md-2 control-label"></label>
+            <label asp-for="RouteBusStopTimeID" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select asp-for="BusStopId" class ="form-control" asp-items="ViewBag.BusStopId"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="RouteID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <select asp-for="RouteID" class ="form-control" asp-items="ViewBag.RouteID"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="TimeSheetId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <select asp-for="TimeSheetId" class ="form-control" asp-items="ViewBag.TimeSheetId"></select>
+                <input asp-for="RouteBusStopTimeID" class="form-control" />
+                <span asp-validation-for="RouteBusStopTimeID" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">

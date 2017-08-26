@@ -11,8 +11,6 @@ namespace blues.Data
             }
             public DbSet<BusStop> BusStops { get; set; }
 
-            public DbSet<GeoInfo> GeoInfos { get; set; }
-
             public DbSet<Route> Routes { get; set; }
 
             public DbSet<RouteBusStopTime> RouteBusStopTimes { get; set; }
@@ -24,7 +22,6 @@ namespace blues.Data
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
                   modelBuilder.Entity<BusStop>().ToTable("BusStop");
-                  modelBuilder.Entity<GeoInfo>().ToTable("GeoInfo");
                   modelBuilder.Entity<Route>().ToTable("Route");
                   modelBuilder.Entity<RouteBusStopTime>().ToTable("RouteBusStopTime");
                   modelBuilder.Entity<RouteSection>().ToTable("RouteSection");
