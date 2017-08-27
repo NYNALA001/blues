@@ -27,6 +27,13 @@ namespace blues.Controllers
             return View();
         }
 
+        public IActionResult BusStop()
+        {
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

@@ -10,22 +10,22 @@ using blues.Models;
 
 namespace blues.Controllers
 {
-    public class RouteBusStopTimesController : Controller
+    public class BusStopsController : Controller
     {
         private readonly BusContext _context;
 
-        public RouteBusStopTimesController(BusContext context)
+        public BusStopsController(BusContext context)
         {
             _context = context;    
         }
 
-        // GET: RouteBusStopTimes
+        // GET: BusStops
         public async Task<IActionResult> Index()
         {
-            return View(await _context.RouteBusStopTimes.ToListAsync());
+            return View(await _context.BusStops.ToListAsync());
         }
 
-        // GET: RouteBusStopTimes/Details/5
+        // GET: BusStops/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace blues.Controllers
                 return NotFound();
             }
 
-            var routeBusStopTime = await _context.RouteBusStopTimes
-                .SingleOrDefaultAsync(m => m.RouteBusStopTimeID == id);
-            if (routeBusStopTime == null)
+            var busStop = await _context.BusStops
+                .SingleOrDefaultAsync(m => m.BusStopID == id);
+            if (busStop == null)
             {
                 return NotFound();
             }
 
-            return View(routeBusStopTime);
+            return View(busStop);
         }
 
-        // GET: RouteBusStopTimes/Create
+        // GET: BusStops/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: RouteBusStopTimes/Create
+        // POST: BusStops/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RouteBusStopTimeID,OrderIndex")] RouteBusStopTime routeBusStopTime)
+        public async Task<IActionResult> Create([Bind("BusStopID,Name,Address,latitude,longitude")] BusStop busStop)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(routeBusStopTime);
+                _context.Add(busStop);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(routeBusStopTime);
+            return View(busStop);
         }
 
-        // GET: RouteBusStopTimes/Edit/5
+        // GET: BusStops/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace blues.Controllers
                 return NotFound();
             }
 
-            var routeBusStopTime = await _context.RouteBusStopTimes.SingleOrDefaultAsync(m => m.RouteBusStopTimeID == id);
-            if (routeBusStopTime == null)
+            var busStop = await _context.BusStops.SingleOrDefaultAsync(m => m.BusStopID == id);
+            if (busStop == null)
             {
                 return NotFound();
             }
-            return View(routeBusStopTime);
+            return View(busStop);
         }
 
-        // POST: RouteBusStopTimes/Edit/5
+        // POST: BusStops/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RouteBusStopTimeID,OrderIndex")] RouteBusStopTime routeBusStopTime)
+        public async Task<IActionResult> Edit(int id, [Bind("BusStopID,Name,Address,latitude,longitude")] BusStop busStop)
         {
-            if (id != routeBusStopTime.RouteBusStopTimeID)
+            if (id != busStop.BusStopID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace blues.Controllers
             {
                 try
                 {
-                    _context.Update(routeBusStopTime);
+                    _context.Update(busStop);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RouteBusStopTimeExists(routeBusStopTime.RouteBusStopTimeID))
+                    if (!BusStopExists(busStop.BusStopID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace blues.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(routeBusStopTime);
+            return View(busStop);
         }
 
-        // GET: RouteBusStopTimes/Delete/5
+        // GET: BusStops/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace blues.Controllers
                 return NotFound();
             }
 
-            var routeBusStopTime = await _context.RouteBusStopTimes
-                .SingleOrDefaultAsync(m => m.RouteBusStopTimeID == id);
-            if (routeBusStopTime == null)
+            var busStop = await _context.BusStops
+                .SingleOrDefaultAsync(m => m.BusStopID == id);
+            if (busStop == null)
             {
                 return NotFound();
             }
 
-            return View(routeBusStopTime);
+            return View(busStop);
         }
 
-        // POST: RouteBusStopTimes/Delete/5
+        // POST: BusStops/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var routeBusStopTime = await _context.RouteBusStopTimes.SingleOrDefaultAsync(m => m.RouteBusStopTimeID == id);
-            _context.RouteBusStopTimes.Remove(routeBusStopTime);
+            var busStop = await _context.BusStops.SingleOrDefaultAsync(m => m.BusStopID == id);
+            _context.BusStops.Remove(busStop);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool RouteBusStopTimeExists(int id)
+        private bool BusStopExists(int id)
         {
-            return _context.RouteBusStopTimes.Any(e => e.RouteBusStopTimeID == id);
+            return _context.BusStops.Any(e => e.BusStopID == id);
         }
     }
 }

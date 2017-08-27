@@ -10,15 +10,15 @@ namespace blues.Data
         public static void Initialize(BusContext context)
         {
             context.Database.EnsureCreated();
-            // Look for any students.
+            //Look for any students.
             if (context.RouteBusStopTimes.Any())
             {
-                return; // DB has been seeded
+               return; // DB has been seeded
             }
 
             var routeBusStopTimes = new RouteBusStopTime[]
             {
-                new RouteBusStopTime{RouteBusStopTimeID=1,OrderIndex=1}
+                new RouteBusStopTime{OrderIndex=1}
             };
 
             foreach (RouteBusStopTime s in routeBusStopTimes)
@@ -29,7 +29,7 @@ namespace blues.Data
 
             var busStops = new BusStop[]
             {
-                new BusStop{ BusStopID=1, Name= "Forest Hill"}
+                new BusStop{Name="Forest Hill", Address="19 Avenue Rd, Mowbray"}
             };
 
             foreach (BusStop b in busStops)
@@ -40,7 +40,7 @@ namespace blues.Data
 
             var routes = new Route[]
             {
-                new Route { RouteID=1, Name="FH"}
+                new Route {Name="FH"}
             };
 
             foreach (Route r in routes)
@@ -51,7 +51,7 @@ namespace blues.Data
 
             var routeSections = new RouteSection[]
             {
-                new RouteSection { RouteSectionID=1, Details ="FH-UP", Name="FH-UP"}
+                new RouteSection {Details ="FH-UP", Name="FH-UP"}
             };
 
             foreach (RouteSection r in routeSections)
@@ -62,7 +62,7 @@ namespace blues.Data
 
             var timeSheets = new TimeSheet[]
             {
-                new TimeSheet { TimeSheetID=1, FirstBus=DateTime.Parse("09:30"), FirstBusInHour=DateTime.Parse("10:30"), SecondBusInHour=DateTime.Parse("11:30"), LastBus=DateTime.Parse("20:30") }
+                new TimeSheet {FirstBus=DateTime.Parse("09:30"), FirstBusInHour=DateTime.Parse("10:30"), SecondBusInHour=DateTime.Parse("11:30"), LastBus=DateTime.Parse("20:30") }
             };
 
             foreach (TimeSheet t in timeSheets)

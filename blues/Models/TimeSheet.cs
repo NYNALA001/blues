@@ -8,7 +8,6 @@ namespace blues.Models
 {
     public class TimeSheet
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TimeSheetID { get; set; }
         public DateTime FirstBus { get; set; }
         public DateTime LastBus { get; set; }

@@ -4,7 +4,6 @@ namespace blues.Models
 {
     public class RouteBusStopTime
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RouteBusStopTimeID { get; set; }
         public int OrderIndex { get; set; }
 

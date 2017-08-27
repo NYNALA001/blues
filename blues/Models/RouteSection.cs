@@ -8,7 +8,6 @@ namespace blues.Models
 {
     public class RouteSection
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RouteSectionID { get; set; }
         public String Name { get; set; }
         public String Details { get; set; }
