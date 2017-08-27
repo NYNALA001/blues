@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using blues.Data;
 using blues.Models;
@@ -22,13 +20,15 @@ namespace blues.Controllers
         // GET: BusStops
         public async Task<IActionResult> Index(string searchString)
         {
-            var BusStops = from m in _context.BusStops select m;
+            var BusStops = from m in _context.BusStops .Include(t=>t.RouteBusStopTimes) .AsNoTracking() select m;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 BusStops = BusStops.Where(s => s.Name.Contains(searchString));
+                
             }
             return View(await BusStops.ToListAsync());
-        }
+        }
 
         // GET: BusStops/Details/5
         public async Task<IActionResult> Details(int? id)

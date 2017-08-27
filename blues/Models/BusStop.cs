@@ -9,6 +9,7 @@ namespace blues.Models
         public int BusStopID { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }
+
         public ICollection<RouteBusStopTime> RouteBusStopTimes { get; set; }
     }
 }
