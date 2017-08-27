@@ -20,10 +20,15 @@ namespace blues.Controllers
         }
 
         // GET: BusStops
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.BusStops.ToListAsync());
-        }
+            var BusStops = from m in _context.BusStops select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                BusStops = BusStops.Where(s => s.Name.Contains(searchString));
+            }
+            return View(await BusStops.ToListAsync());
+        }
 
         // GET: BusStops/Details/5
         public async Task<IActionResult> Details(int? id)
